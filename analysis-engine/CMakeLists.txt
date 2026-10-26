@@ -17,3 +17,8 @@ if(VITALSCOPE_BUILD_TESTS)
     enable_testing()
     add_subdirectory(tests)
 endif()
+
+option(VITALSCOPE_BUILD_SERVER "Build the Crow HTTP server" ON)
+if(VITALSCOPE_BUILD_SERVER)
+    add_subdirectory(server)
+endif()
