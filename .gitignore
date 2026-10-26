@@ -1,0 +1,19 @@
+# C++ build artifacts
+analysis-engine/build/
+**/*.obj
+**/*.o
+**/*.a
+**/*.exe
+**/*.dll
+
+# Python
+__pycache__/
+*.pyc
+api-service/.venv/
+api-service/venv/
+*.db
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
