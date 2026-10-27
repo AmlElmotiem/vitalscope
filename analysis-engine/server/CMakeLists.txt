@@ -39,3 +39,9 @@ target_link_libraries(vitalscope_server PRIVATE
 if(WIN32)
     target_link_libraries(vitalscope_server PRIVATE ws2_32 mswsock)
 endif()
+
+# Link libstdc++/libgcc statically so the binary doesn't depend on the
+# runtime container having the same (or newer) libstdc++ as the build image.
+if(UNIX)
+    target_link_options(vitalscope_server PRIVATE -static-libgcc -static-libstdc++)
+endif()

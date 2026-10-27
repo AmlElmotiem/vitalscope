@@ -1,0 +1,20 @@
+services:
+  analysis-engine:
+    build: ./analysis-engine
+    ports:
+      - "8081:8081"
+
+  api-service:
+    build: ./api-service
+    ports:
+      - "8000:8000"
+    environment:
+      ANALYSIS_ENGINE_URL: http://analysis-engine:8081
+      DATABASE_URL: sqlite:///./data/vitalscope.db
+    volumes:
+      - vitalscope-data:/app/data
+    depends_on:
+      - analysis-engine
+
+volumes:
+  vitalscope-data:
